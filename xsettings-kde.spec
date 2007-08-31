@@ -1,8 +1,8 @@
 Summary:	XSettings Daemon for KDE Environment
 Name:     	xsettings-kde
 Version:	0.4
-Release:	%mkrel 1
-License:	GPL
+Release:	%mkrel 2
+License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source: 	%{name}-%{version}.tar.bz2
 URL:		http://cvs.mandriva.com/cgi-bin/cvsweb.cgi/soft/xsettings-kde/
@@ -14,7 +14,7 @@ BuildRequires:	X11-devel
 This package provides a XSettings daemon for KDE Desktop Environment.
 It allows XSettings aware applications (all GTK+ 2 and GNOME 2 applications)
 to be informed instantly of changes in KDE configuration, such as theme name,
-default font...
+default font and so on.
 
 %prep
 %setup -q
@@ -42,10 +42,9 @@ EOF
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-
-
 %files 
 %defattr(-, root, root)
-%doc COPYING ChangeLog README
+%doc ChangeLog README
 %{_bindir}/*
 %{_datadir}/autostart/*
+
