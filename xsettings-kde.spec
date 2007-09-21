@@ -1,11 +1,11 @@
 Summary:	XSettings Daemon for KDE Environment
 Name:     	xsettings-kde
-Version:	0.4
-Release:	%mkrel 2
+Version:	0.5
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source: 	%{name}-%{version}.tar.bz2
-URL:		http://cvs.mandriva.com/cgi-bin/cvsweb.cgi/soft/xsettings-kde/
+URL:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/theme/xsettings-kde/
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	X11-devel
