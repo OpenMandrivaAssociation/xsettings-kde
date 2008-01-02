@@ -7,6 +7,7 @@ Group:		Graphical desktop/KDE
 Source: 	%{name}-%{version}.tar.bz2
 URL:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/theme/xsettings-kde/
 
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	X11-devel
 
 %description
