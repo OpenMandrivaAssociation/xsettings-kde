@@ -1,7 +1,7 @@
 Summary:	XSettings Daemon for KDE Environment
 Name:     	xsettings-kde
 Version:	0.7
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source: 	%{name}-%{version}.tar.bz2
@@ -37,6 +37,7 @@ Exec=xsettings-kde
 Name=XSettings-KDE
 X-KDE-autostart-after=kdesktop
 Type=Service
+OnlyShowIn=KDE;
 EOF
 
 %clean
