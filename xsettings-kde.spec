@@ -1,7 +1,7 @@
 Summary:	XSettings Daemon for KDE Environment
 Name:     	xsettings-kde
-Version:	0.7
-Release:	%mkrel 3
+Version:	0.8
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source: 	%{name}-%{version}.tar.bz2
