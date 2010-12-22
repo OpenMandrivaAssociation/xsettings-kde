@@ -1,14 +1,14 @@
 Summary:	XSettings Daemon for KDE Environment
 Name:     	xsettings-kde
 Version:	0.11
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source: 	%{name}-%{version}.tar.bz2
 URL:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/theme/xsettings-kde/
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-BuildRequires:	X11-devel glib2-devel
+BuildRequires:	libx11-devel glib2-devel
 
 %description
 This package provides a XSettings daemon for KDE Desktop Environment.
@@ -21,7 +21,7 @@ default font and so on.
 
 %build
 
-make CFLAGS="$RPM_OPT_FLAGS" lib=%{_lib}
+make CFLAGS="%optflags" LDFLAGS="%ldflags" lib=%{_lib}
 
 %install
 rm -rf $RPM_BUILD_ROOT
