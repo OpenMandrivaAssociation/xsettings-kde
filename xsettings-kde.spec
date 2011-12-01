@@ -24,13 +24,13 @@ default font and so on.
 make CFLAGS="%optflags" LDFLAGS="%ldflags" lib=%{_lib}
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
-mkdir -p $RPM_BUILD_ROOT%{_bindir}
-cp -f xsettings-kde $RPM_BUILD_ROOT%{_bindir}
+mkdir -p %{buildroot}%{_bindir}
+cp -f xsettings-kde %{buildroot}%{_bindir}
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/autostart/
-cat << EOF > $RPM_BUILD_ROOT%{_datadir}/autostart/xsettings-kde.desktop
+mkdir -p %{buildroot}%{_datadir}/autostart/
+cat << EOF > %{buildroot}%{_datadir}/autostart/xsettings-kde.desktop
 [Desktop Entry]
 Encoding=UTF-8
 Exec=xsettings-kde
@@ -41,7 +41,7 @@ OnlyShowIn=KDE;
 EOF
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files 
 %defattr(-, root, root)
