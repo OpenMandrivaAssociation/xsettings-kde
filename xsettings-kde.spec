@@ -5,7 +5,7 @@ Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source: 	%{name}-%{version}.tar.bz2
-URL:		http://svnweb.mageia.org/soft/theme/xsettings-kde/
+URL:		https://abf.rosalinux.ru/moondrake/xsettings-kde
 
 BuildRequires:	pkgconfig(x11) pkgconfig(glib-2.0)
 
