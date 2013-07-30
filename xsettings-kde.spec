@@ -7,7 +7,7 @@ Group:		Graphical desktop/KDE
 Source: 	%{name}-%{version}.tar.bz2
 URL:		http://svnweb.mageia.org/soft/theme/xsettings-kde/
 
-BuildRequires:	pkgconfig(x11) glib2-devel
+BuildRequires:	pkgconfig(x11) pkgconfig(glib-2.0)
 
 %description
 This package provides a XSettings daemon for KDE Desktop Environment.
