@@ -1,13 +1,13 @@
 Summary:	XSettings Daemon for KDE Environment
 Name:     	xsettings-kde
 Version:	0.12.3
-Release:	6
+Release:	7
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source: 	%{name}-%{version}.tar.bz2
 URL:		http://svnweb.mageia.org/soft/theme/xsettings-kde/
 
-BuildRequires:	pkgconfig(x11) glib2-devel
+BuildRequires:	pkgconfig(x11) pkgconfig(glib-2.0)
 
 %description
 This package provides a XSettings daemon for KDE Desktop Environment.
@@ -20,7 +20,7 @@ default font and so on.
 
 %build
 
-make CFLAGS="%optflags" LDFLAGS="%ldflags" lib=%{_lib}
+make CFLAGS="%optflags `pkg-config --cflags glib-2.0`" LDFLAGS="%ldflags" lib=%{_lib}
 
 %install
 rm -rf $RPM_BUILD_ROOT
