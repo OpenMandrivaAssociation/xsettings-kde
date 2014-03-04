@@ -1,7 +1,7 @@
 Summary:	XSettings Daemon for KDE Environment
 Name:		xsettings-kde
-Version:	0.12.3.1
-Release:	2
+Version:	0.12.3.2
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source0:	%{name}-%{version}.tar.xz
@@ -26,5 +26,5 @@ default font and so on.
 
 %files 
 %doc ChangeLog README
-%{_bindir}/*
-%{_datadir}/autostart/*
+%{_bindir}/%{name}
+%{_datadir}/autostart/%{name}.desktop
