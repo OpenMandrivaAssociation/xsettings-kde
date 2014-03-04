@@ -1,11 +1,11 @@
 Summary:	XSettings Daemon for KDE Environment
 Name:		xsettings-kde
 Version:	0.12.3.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source0:	%{name}-%{version}.tar.xz
-URL:		https://abf.rosalinux.ru/moondrake/xsettings-kde
+URL:		https://abf.rosalinux.ru/mdksoft/xsettings-kde
 
 BuildRequires:	pkgconfig(x11) pkgconfig(glib-2.0)
 
