@@ -1,0 +1,75 @@
+From 5d6a1a0b937e336ad81ba147ec3f026b8da7dc48 Mon Sep 17 00:00:00 2001
+From: Olav Vitters <olav@vitters.nl>
+Date: Wed, 27 Jan 2016 00:28:46 +0100
+Subject: [PATCH 07/16] Stop using deprecated GSettings API
+
+Based off commit 4ef177bc80ba530c97a9cccebc9fb665a3f5d139 in
+gnome-settings-daemon.
+---
+ xsettings-kde.c | 38 ++++++++++++++++++++++++++++----------
+ 1 file changed, 28 insertions(+), 10 deletions(-)
+
+diff --git a/xsettings-kde.c b/xsettings-kde.c
+index 9282b60..df37d4f 100644
+--- a/xsettings-kde.c
++++ b/xsettings-kde.c
+@@ -195,20 +195,38 @@ int readDPI(char *buffer)
+ }
+ 
+ static gboolean
+-check_gsettings_schema (const gchar *schema)
++contained (char       **items,
++           const char  *item)
+ {
+-  const gchar * const *schemas = g_settings_list_schemas ();
+-  gint i;
++	while (*items) {
++		if (g_strcmp0 (*items++, item) == 0) {
++			return TRUE;
++		}
++	}
+ 
+-    for (i = 0; schemas[i] != NULL; i++) {
+-      if (g_strcmp0 (schemas[i], schema) == 0)
+-            return TRUE;
+-  }
+-  g_warning ("Settings schema '%s' is not installed.", schema);
++	return FALSE;
++}
++
++static gboolean
++schema_is_installed (const char *schema)
++{
++	GSettingsSchemaSource *source = NULL;
++	gchar **non_relocatable = NULL;
++	gchar **relocatable = NULL;
++
++	source = g_settings_schema_source_get_default ();
++	if (!source) {
++		g_warning ("Settings schema '%s' is not installed.", schema);
++		return FALSE;
++	}
+ 
+-    return FALSE;
++	g_settings_schema_source_list_schemas (source, TRUE, &non_relocatable, &relocatable);
++
++	return (contained (non_relocatable, schema) ||
++		contained (relocatable, schema));
+ }
+ 
++
+ static void
+ gsettings_changed (GSettings  *settings,
+          const char *key,
+@@ -509,7 +527,7 @@ void initial_init () {
+   GSettings *settings = NULL;
+   gchar *vgtkimm = NULL;
+ 
+-    if (check_gsettings_schema (IMMODULE_SCHEMA)) {
++    if (schema_is_installed (IMMODULE_SCHEMA)) {
+       settings = g_settings_new (IMMODULE_SCHEMA);
+       g_signal_connect (settings, "changed",
+                 G_CALLBACK (gsettings_changed), NULL);
+-- 
+1.9.5
+

@@ -1,0 +1,25 @@
+From 39bdabecd3f6a406135c2036adbfa4995197fff3 Mon Sep 17 00:00:00 2001
+From: Olav Vitters <olav@vitters.nl>
+Date: Tue, 26 Jan 2016 19:50:53 +0100
+Subject: [PATCH 06/16] add forgotten ; to previous commit
+
+---
+ xsettings-kde.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/xsettings-kde.c b/xsettings-kde.c
+index 3de6452..9282b60 100644
+--- a/xsettings-kde.c
++++ b/xsettings-kde.c
+@@ -533,7 +533,7 @@ void initial_init () {
+ 		/* KDE always pastes clipboard content on middle-click */
+ 		xsettings_manager_set_int(managers[i], "Gtk/EnablePrimaryPaste", 1);
+ 		/* KDE always warps pointer on mouse click */
+-		xsettings_manager_set_int(managers[i], "Gtk/PrimaryButtonWarpsSlider", 1)
++		xsettings_manager_set_int(managers[i], "Gtk/PrimaryButtonWarpsSlider", 1);
+       if (vgtkimm)
+             xsettings_manager_set_string (managers[i], "Gtk/IMModule", vgtkimm);
+ 		xsettings_manager_notify (managers[i]);
+-- 
+1.9.5
+

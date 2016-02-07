@@ -1,0 +1,31 @@
+From cf3333b22d33b4ffa61ad79867aed6c2e0977ed8 Mon Sep 17 00:00:00 2001
+From: l10n daemon script <scripty@kde.org>
+Date: Sun, 31 Jan 2016 03:28:30 +0000
+Subject: [PATCH 14/16] SVN_SILENT made messages (.desktop file) - always
+ resolve ours
+
+In case of conflict in i18n, keep the version of the branch "ours"
+To resolve a particular conflict, "git checkout --ours path/to/file.desktop"
+---
+ xsettings-kde.desktop | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/xsettings-kde.desktop b/xsettings-kde.desktop
+index e70ab85..dc2dadb 100644
+--- a/xsettings-kde.desktop
++++ b/xsettings-kde.desktop
+@@ -1,6 +1,11 @@
+ [Desktop Entry]
+ Exec=xsettings-kde
+ Name=XSettings-KDE
++Name[gl]=XSettings-KDE
++Name[nl]=XSettings-KDE
++Name[pt]=XSettings-KDE
++Name[uk]=XSettings-KDE
++Name[x-test]=xxXSettings-KDExx
+ X-KDE-autostart-after=kdesktop
+ X-KDE-autostart-phase=1
+ Type=Service
+-- 
+1.9.5
+

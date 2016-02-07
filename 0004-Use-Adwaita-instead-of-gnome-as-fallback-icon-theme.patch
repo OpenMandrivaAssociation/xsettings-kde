@@ -1,0 +1,25 @@
+From 19a8d0d239d95e5aef4c54c289606550edddd158 Mon Sep 17 00:00:00 2001
+From: Luc Menut <lmenut@mageia.org>
+Date: Mon, 16 Feb 2015 22:14:14 +0100
+Subject: [PATCH 04/16] Use Adwaita instead of gnome as fallback icon theme
+
+---
+ xsettings-kde.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/xsettings-kde.c b/xsettings-kde.c
+index d6dbb2f..706339b 100644
+--- a/xsettings-kde.c
++++ b/xsettings-kde.c
+@@ -527,7 +527,7 @@ void initial_init () {
+ 
+ 	for (i = 0 ; i < max_display ; i++) {                         
+ 		xsettings_manager_set_string(managers[i], "Gtk/FileChooserBackend", "gio");
+-		xsettings_manager_set_string(managers[i], "Net/FallbackIconTheme", "gnome");
++		xsettings_manager_set_string(managers[i], "Net/FallbackIconTheme", "Adwaita");
+        /* KDE always shows menu images, so make sure GTK+ does, too */
+         xsettings_manager_set_int(managers[i], "Gtk/MenuImages", 1);
+ 		/* KDE always pastes clipboard content on middle-click */
+-- 
+1.9.5
+

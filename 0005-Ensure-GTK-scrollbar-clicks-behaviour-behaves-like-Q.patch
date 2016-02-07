@@ -1,0 +1,32 @@
+From fa3970dce66d9f19c52e5ed4777dea3bb723f982 Mon Sep 17 00:00:00 2001
+From: Olav Vitters <olav@vitters.nl>
+Date: Tue, 26 Jan 2016 19:31:27 +0100
+Subject: [PATCH 05/16] Ensure GTK+ scrollbar clicks behaviour behaves like Qt
+
+This requires (not yet released) GTK+ 3.19.8 or apply the easily
+backportable one liner patch from
+https://git.gnome.org/browse/gtk+/commit/?id=5cbc247c08129e3bad290d9cdc8e881f9105ac3b.
+
+Important when using e.g. GTK+3.x version of Firefox under KDE.
+
+DIGEST:
+---
+ xsettings-kde.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/xsettings-kde.c b/xsettings-kde.c
+index 706339b..3de6452 100644
+--- a/xsettings-kde.c
++++ b/xsettings-kde.c
+@@ -532,6 +532,8 @@ void initial_init () {
+         xsettings_manager_set_int(managers[i], "Gtk/MenuImages", 1);
+ 		/* KDE always pastes clipboard content on middle-click */
+ 		xsettings_manager_set_int(managers[i], "Gtk/EnablePrimaryPaste", 1);
++		/* KDE always warps pointer on mouse click */
++		xsettings_manager_set_int(managers[i], "Gtk/PrimaryButtonWarpsSlider", 1)
+       if (vgtkimm)
+             xsettings_manager_set_string (managers[i], "Gtk/IMModule", vgtkimm);
+ 		xsettings_manager_notify (managers[i]);
+-- 
+1.9.5
+
