@@ -40,7 +40,7 @@ Type=Service
 OnlyShowIn=KDE;
 EOF
 
-%apply_patches
+%autopatch -p1
 
 %build
 %make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" lib=%{_lib}
