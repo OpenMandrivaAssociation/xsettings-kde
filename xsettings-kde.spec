@@ -18,6 +18,7 @@ Patch14:	0014-SVN_SILENT-made-messages-.desktop-file-always-resolv.patch
 Patch15:	0015-SVN_SILENT-made-messages-.desktop-file-always-resolv.patch
 Patch16:	0016-SVN_SILENT-made-messages-.desktop-file-always-resolv.patch
 
+BuildRequires:	make
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(glib-2.0)
 
